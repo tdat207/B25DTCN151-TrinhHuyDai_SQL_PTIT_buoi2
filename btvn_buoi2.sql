@@ -1,3 +1,6 @@
+CREATE DATABASE buoi2;
+USE buoi2;
+
 -- Bài 1
 -- 1. Tạo bảng Class
 CREATE TABLE class (
@@ -12,7 +15,7 @@ CREATE TABLE student (
     full_name VARCHAR(100) NOT NULL,
     dob DATE,
     class_id VARCHAR(20),
-    FOREIGN KEY (class_id) REFERENCES class(class_id) ON DELETE RESTRICT
+    FOREIGN KEY (class_id) REFERENCES class(class_id)
 );
 
 -- Bài 2
@@ -34,6 +37,6 @@ CREATE TABLE enrollment (
     PRIMARY KEY (student_id, subject_id),
     
     -- Khóa ngoại nối về 2 bảng gốc
-    FOREIGN KEY (student_id) REFERENCES student(student_id) ON DELETE CASCADE,
-    FOREIGN KEY (subject_id) REFERENCES subject(subject_id) ON DELETE CASCADE
+    FOREIGN KEY (student_id) REFERENCES student(student_id),
+    FOREIGN KEY (subject_id) REFERENCES subject(subject_id)
 );
